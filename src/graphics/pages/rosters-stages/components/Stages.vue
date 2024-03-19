@@ -66,8 +66,6 @@ import { useActiveRoundStore } from 'client-shared/store/activeRoundStore';
 import { useAssetPathStore } from 'client-shared/store/assetPathStore';
 import { useBreakScreenStore } from 'client-shared/store/breakScreenStore';
 
-const STAGE_SHOW_HIDE_ANIMATION_DURATION = 0.5;
-
 export default defineComponent({
     name: 'StageDisplay',
 

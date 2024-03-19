@@ -27,7 +27,13 @@
                     class="team-player"
                     :align="team === 'A' ? 'right' : 'left'"
                 >
-                    {{ $helpers.addDots(player.name) }}<badge v-if="!$helpers.isBlank(player.pronouns)" :color="$helpers.colors.accentRed" class="pronouns">{{ player.pronouns }}</badge>
+                    {{ $helpers.addDots(player.name) }}<badge
+                        v-if="!$helpers.isBlank(player.pronouns)"
+                        :color="$helpers.colors.accentRed"
+                        class="pronouns"
+                    >
+                        {{ player.pronouns }}
+                    </badge>
                 </fitted-content>
                 <div style="height: 20px" />
             </div>
@@ -49,13 +55,12 @@ import { computed, PropType } from 'vue';
 import FittedContent from '../../../components/FittedContent.vue';
 import { useActiveRoundStore } from 'client-shared/store/activeRoundStore';
 import Badge from '../../../components/Badge.vue';
-import ImageLoader from '../../../components/ImageLoader.vue';
 import { isBlank } from '@iplsplatoon/vue-components';
 
 export default defineComponent({
     name: 'TeamRoster',
 
-    components: { ImageLoader, Badge, FittedContent },
+    components: { Badge, FittedContent },
 
     props: {
         team: {

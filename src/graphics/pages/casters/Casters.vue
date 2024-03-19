@@ -22,7 +22,6 @@ import gsap from 'gsap';
 import { computed, defineComponent } from 'vue';
 import { useCasterStore } from 'client-shared/store/casterStore';
 import LargeCasterDisplay from './components/LargeCasterDisplay.vue';
-import random from 'lodash/random';
 import { bindEntranceToTimelineGenerator } from '../../helpers/obsSourceHelper';
 
 export default defineComponent({
