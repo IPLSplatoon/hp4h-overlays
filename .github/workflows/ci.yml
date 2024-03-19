@@ -16,10 +16,19 @@ jobs:
           token: ${{ secrets['GITHUB_TOKEN'] }}
           ref: ${{ github.ref }}
           fetch-depth: 0
-          path: ./hp4h-overlays
+          path: ./bundles/hp4h-overlays
+
+      - name: Checkout ipl-overlay-controls
+        uses: actions/checkout@v2
+        with:
+          repository: 'ipl-overlay-controls'
+          token: ${{ secrets['GITHUB_TOKEN'] }}
+          ref: 'brackets'
+          fetch-depth: 0
+          path: ./bundles/ipl-overlay-controls
 
       - name: Create npm config file
-        working-directory: ./hp4h-overlays
+        working-directory: ./bundles/hp4h-overlays
         run: printf "always-auth=true\n@gsap:registry=https://npm.greensock.com\n//npm.greensock.com/:_authToken=$GSAP_AUTH\n" > .npmrc
         shell: bash
         env:
@@ -30,11 +39,15 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
-          cache-dependency-path: ./hp4h-overlays/package-lock.json
+          cache-dependency-path: ./bundles/hp4h-overlays/package-lock.json
 
       - name: Install NPM dependencies
-        working-directory: ./hp4h-overlays
+        working-directory: ./bundles/hp4h-overlays
         run: npm ci
+
+      - name: Run ESLint on source
+        working-directory: ./bundles/hp4h-overlays
+        run: npm run lint
 
       - name: Set up GitHub for SSH access
         if: github.ref == 'refs/heads/main'
@@ -44,7 +57,7 @@ jobs:
 
       - name: Set git config
         if: github.ref == 'refs/heads/main'
-        working-directory: ./hp4h-overlays
+        working-directory: ./bundles/hp4h-overlays
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
@@ -52,7 +65,7 @@ jobs:
       - name: Merge main branch into build branch
         if: github.ref == 'refs/heads/main'
         continue-on-error: true
-        working-directory: ./hp4h-overlays
+        working-directory: ./bundles/hp4h-overlays
         run: |
           git checkout main
           git checkout build
@@ -60,7 +73,7 @@ jobs:
 
       - name: Build
         if: github.ref == 'refs/heads/main'
-        working-directory: ./hp4h-overlays
+        working-directory: ./bundles/hp4h-overlays
         run: |
           npm run clean
           npm run build
@@ -69,7 +82,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         id: commit
         continue-on-error: true
-        working-directory: ./hp4h-overlays
+        working-directory: ./bundles/hp4h-overlays
         run: |
           git add -f graphics
           git commit -m "Build result from master branch" -a
@@ -80,4 +93,4 @@ jobs:
         with:
           github_token: ${{ secrets['GITHUB_TOKEN'] }}
           branch: build
-          directory: ./hp4h-overlays
+          directory: ./bundles/hp4h-overlays
