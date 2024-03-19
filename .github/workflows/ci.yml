@@ -32,9 +32,6 @@ jobs:
           cache: 'npm'
           cache-dependency-path: ./hp4h-overlays/package-lock.json
 
-      - name: Update NPM
-        run: npm install -g npm@7.19.1
-
       - name: Install NPM dependencies
         working-directory: ./hp4h-overlays
         run: npm ci
