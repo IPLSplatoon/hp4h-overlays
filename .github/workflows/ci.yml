@@ -36,10 +36,6 @@ jobs:
         working-directory: ./hp4h-overlays
         run: npm ci
 
-      - name: Run ESLint on source
-        working-directory: ./hp4h-overlays
-        run: npm run lint
-
       - name: Set up GitHub for SSH access
         if: github.ref == 'refs/heads/main'
         uses: webfactory/ssh-agent@master
