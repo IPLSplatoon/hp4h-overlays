@@ -20,7 +20,7 @@ jobs:
 
       - name: Create npm config file
         working-directory: ./hp4h-overlays
-        run: echo "always-auth=true\n@gsap:registry=https://npm.greensock.com\n//npm.greensock.com/:_authToken=$GSAP_AUTH" > .npmrc
+        run: printf "always-auth=true\n@gsap:registry=https://npm.greensock.com\n//npm.greensock.com/:_authToken=$GSAP_AUTH\n" > .npmrc
         shell: bash
         env:
           GSAP_AUTH: ${{ secrets.GSAP_AUTH }}
