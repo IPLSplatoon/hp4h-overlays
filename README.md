@@ -5,6 +5,7 @@ Broadcast graphics for the [HP for Heroes](https://www.start.gg/tournament/hp-fo
 ## Setup
 
 - Set up `ipl-overlay-controls` using the [installation guide.](https://ipl-overlay-controls.readthedocs.io/en/latest/users-guide/#installation)
+- To use brackets (as of 19-03-2024), the `brackets` branch of `ipl-overlay-controls` must be used.
 
 ### Pre-built version (For production use)
 
