@@ -35,10 +35,9 @@ Broadcast graphics for the [HP for Heroes](https://www.start.gg/tournament/hp-fo
 ### Background graphic
 
 The background graphic can be adjusted by adding query parameters to the URL. Possible options are:
-- `variant`: Which background variant to use. Possible options: `ink`, `squid-octo`, `tabs`
 - `brightness`: The brightness of the graphic.
 
-Example: `localhost:9090/bundles/hp4h-overlays/graphics/background.html?brightness=0.75&variant=tabs`
+Example: `localhost:9090/bundles/hp4h-overlays/graphics/background.html?brightness=0.75`
 
 ## CI
 
