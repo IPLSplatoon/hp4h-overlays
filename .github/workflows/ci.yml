@@ -1,0 +1,87 @@
+name: CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  lint-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repository
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets['GITHUB_TOKEN'] }}
+          ref: ${{ github.ref }}
+          fetch-depth: 0
+          path: ./hp4h-overlays
+
+      - name: Create npm config file
+        working-directory: ./hp4h-overlays
+        run: echo "//npm.greensock.com/:_authToken=$GSAP_AUTH\n@gsap:registry=https://npm.greensock.com" >> .npmrc
+        shell: bash
+        env:
+          GSAP_AUTH: ${{ secrets.GSAP_AUTH }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: ./hp4h-overlays/package-lock.json
+
+      - name: Update NPM
+        run: npm install -g npm@7.19.1
+
+      - name: Install NPM dependencies
+        working-directory: ./hp4h-overlays
+        run: npm ci
+
+      - name: Run ESLint on source
+        working-directory: ./hp4h-overlays
+        run: npm run lint
+
+      - name: Set up GitHub for SSH access
+        if: github.ref == 'refs/heads/main'
+        uses: webfactory/ssh-agent@master
+        with:
+          ssh-private-key: ${{ secrets['GH_SSH'] }}
+
+      - name: Set git config
+        if: github.ref == 'refs/heads/main'
+        working-directory: ./hp4h-overlays
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+      - name: Merge main branch into build branch
+        if: github.ref == 'refs/heads/main'
+        continue-on-error: true
+        working-directory: ./hp4h-overlays
+        run: |
+          git checkout main
+          git checkout build
+          git merge main
+
+      - name: Build
+        if: github.ref == 'refs/heads/main'
+        working-directory: ./hp4h-overlays
+        run: |
+          npm run clean
+          npm run build
+
+      - name: Commit built files
+        if: github.ref == 'refs/heads/main'
+        id: commit
+        continue-on-error: true
+        working-directory: ./hp4h-overlays
+        run: |
+          git add -f graphics
+          git commit -m "Build result from master branch" -a
+
+      - name: Push built files to "build" branch
+        if: github.ref == 'refs/heads/main'
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets['GITHUB_TOKEN'] }}
+          branch: build
+          directory: ./hp4h-overlays

@@ -1,0 +1,24 @@
+@use 'sass:color';
+
+$default-border-radius: 4px;
+
+$accent-salmon: #F89A56;
+$accent-red: #D12127;
+$accent-red-text: #fff;
+$background: #619F9F;
+$background-dark: #051A2E;
+$background-dark-text: #fff;
+
+$black: #070a0f;
+$white: #ffffff;
+$accent: #F89A56;
+$accent-secondary: #6195cf;
+$accent-light: #b8d1ef;
+$accent-darker: color.adjust(#151e28, $alpha: -0.1);
+
+$text-color: #1C2039;
+$text-background: #FDECEE;
+$text-background-alpha: rgba(253, 236, 238, 0.95);
+$text-background-alpha-50: rgba(253, 236, 238, 0.5);
+$text-background-secondary-alpha: rgba(51, 51, 51, 0.9);
+$drop-shadow-color: color.adjust($black, $alpha: -0.5);

@@ -1,0 +1,8 @@
+/src/ @inkfarer
+/static/ @inkfarer
+package.json @inkfarer
+.eslintrc.browser.json @inkfarer
+.eslintrc.json @inkfarer
+vite.config.mjs @inkfarer
+tsconfig.browser.json @inkfarer
+tsconfig.extension.json @inkfarer

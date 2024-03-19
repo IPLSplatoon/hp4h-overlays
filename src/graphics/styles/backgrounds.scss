@@ -1,0 +1,22 @@
+@mixin striped-background {
+    position: relative;
+    border-radius: 8px;
+
+    &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        $stripe: rgba(255, 255, 255, 0.3);
+        background:
+            radial-gradient(rgba(255, 255, 255, 1), transparent),
+            repeating-linear-gradient(0deg, transparent, transparent 13.5px, $stripe 13.5px, $stripe 27px);
+        border: 3px solid white;
+        box-sizing: border-box;
+        mix-blend-mode: soft-light;
+        border-radius: 8px;
+        opacity: 0.75;
+    }
+}
