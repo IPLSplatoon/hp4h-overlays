@@ -14,10 +14,14 @@
     },
     "scripts": {
         "build:clean": "run-s clean build",
-        "build": "vite build",
-        "clean": "trash node_modules/.cache && trash dashboard && trash graphics && trash shared",
+        "build": "run-p build:browser build:extension",
+        "build:browser": "vite build",
+        "build:extension": "tsc -b tsconfig.extension.json",
+        "clean": "trash node_modules/.cache && trash dashboard && trash graphics && trash shared && trash extension",
         "start": "node ../..",
-        "watch": "vite",
+        "watch": "run-p watch:*",
+        "watch:browser": "vite",
+        "watch:extension": "tsc -b tsconfig.extension.json -w",
         "lint": "eslint --ext .js,.vue,.ts ./src",
         "lint:fix": "eslint --ext .js,.vue,.ts --fix ./src",
         "schema-types": "nodecg schema-types"
@@ -28,6 +32,16 @@
             {
                 "directory": "static",
                 "endpoint": "static"
+            }
+        ],
+        "dashboardPanels": [
+            {
+                "name": "tiltify",
+                "title": "Tiltify",
+                "width": 2,
+                "file": "tiltify.html",
+                "workspace": "ipl",
+                "headerColor": "#D12127"
             }
         ],
         "graphics": [
@@ -81,6 +95,7 @@
         "@types/lodash": "^4.14.171",
         "@types/luxon": "^3.3.3",
         "@types/node": "^15.14.9",
+        "@types/ws": "^8.5.10",
         "@typescript-eslint/eslint-plugin": "^6.9.1",
         "@typescript-eslint/parser": "^6.9.1",
         "@vitejs/plugin-vue": "^4.4.0",
@@ -104,5 +119,9 @@
         "vue": "^3.3.7",
         "vue-eslint-parser": "^9.3.2",
         "vue-tsc": "^1.8.22"
+    },
+    "dependencies": {
+        "axios": "^1.6.8",
+        "ws": "^8.16.0"
     }
 }

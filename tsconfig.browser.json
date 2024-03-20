@@ -43,5 +43,6 @@
         "src/graphics/**/*.ts",
         "src/graphics/**/*.vue",
         "src/client-shared/**/*.ts",
+        "src/types/**/*.ts"
     ]
 }

@@ -31,7 +31,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { useSlides } from '../../helpers/useSlides';
-import { DASHBOARD_BUNDLE_NAME } from '../../../client-shared/constants';
+import { DASHBOARD_BUNDLE_NAME } from 'client-shared/constants';
 import { computed } from 'vue';
 import gsap from 'gsap';
 import OmnibarMusic from './components/OmnibarMusic.vue';
@@ -39,9 +39,9 @@ import OmnibarNextRound from './components/OmnibarNextRound.vue';
 import OmnibarActiveRound from './components/OmnibarActiveRound.vue';
 import OmnibarPredictions from './components/OmnibarPredictions.vue';
 import OmnibarEventIntro from './components/OmnibarEventIntro.vue';
-import { useNextRoundStore } from '../../../client-shared/store/nextRoundStore';
-import { useMusicStore } from '../../../client-shared/store/musicStore';
-import { usePredictionDataStore } from '../../../client-shared/store/predictionDataStore';
+import { useNextRoundStore } from 'client-shared/store/nextRoundStore';
+import { useMusicStore } from 'client-shared/store/musicStore';
+import { usePredictionDataStore } from 'client-shared/store/predictionDataStore';
 import OmnibarSlideTitle from './components/OmnibarSlideTitle.vue';
 import { useActiveRoundStore } from 'client-shared/store/activeRoundStore';
 import DonationTotal from '../../components/DonationTotal.vue';
@@ -159,13 +159,16 @@ export default defineComponent({
                 margin-left: -10px;
             }
 
-            > .donation-total {
+            .donation-total-wrapper {
+                color: constants.$background-dark-text;
+            }
+
+            .donation-total {
                 font-size: 32px;
                 padding: 0 8px;
                 margin-left: 4px;
                 width: 135px;
                 box-sizing: border-box;
-                color: constants.$background-dark-text;
                 filter: drop-shadow(-2px 2px 2px rgba(0, 0, 0, 0.5));
             }
         }

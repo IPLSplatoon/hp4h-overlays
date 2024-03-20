@@ -19,6 +19,22 @@ Broadcast graphics for the [HP for Heroes](https://www.start.gg/tournament/hp-fo
 - Install dependencies: `npm i`
 - Run build: `npm run build`
 
+### Configuration
+
+To configure this bundle, create the file `<nodecg>/cfg/hp4h-overlays.json` with the following contents:
+
+```json
+{
+  "tiltify": {
+    "socketUrl": "Tiltify websocket URL",
+    "authorization": "Tiltify websocket authorization key",
+    "campaignId": "Tiltify campaign ID",
+    "clientId": "Tiltify application client ID",
+    "clientSecret": "Tiltify application client secret"
+  }
+}
+```
+
 #### Other npm commands
 
 - `build`: Create a production-ready build.

@@ -1,0 +1,19 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "tiltify": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["socketUrl", "authorization", "campaignId", "clientId", "clientSecret"],
+            "properties": {
+                "socketUrl": { "type": "string" },
+                "authorization": { "type": "string" },
+                "campaignId": { "type": "string" },
+                "clientId": { "type": "string" },
+                "clientSecret": { "type": "string" }
+            }
+        }
+    }
+}
