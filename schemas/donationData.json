@@ -1,0 +1,27 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "type": "object",
+    "properties": {
+        "status": {
+            "type": "string",
+            "enum": ["CONNECTED", "CONNECTING", "DISCONNECTED"]
+        },
+        "donationTotal": {
+            "type": "number"
+        },
+        "donationGoal": {
+            "type": "number"
+        },
+        "currency": {
+            "type": "string"
+        }
+    },
+    "required": ["status", "donationTotal", "donationGoal", "currency"],
+    "additionalProperties": false,
+    "default": {
+        "status": "DISCONNECTED",
+        "donationTotal": 0,
+        "donationGoal": 1000,
+        "currency": "USD"
+    }
+}
