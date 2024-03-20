@@ -1,0 +1,1 @@
+import{h as t,i as e}from"./storeHelper-9f994824.js";import{D as s}from"./installCommonHelpers-49d8da94.js";const r=nodecg.Replicant("casters",s),a=t("casters",{state:()=>({casters:{}})}),c=e([r],a);export{c as i,a as u};

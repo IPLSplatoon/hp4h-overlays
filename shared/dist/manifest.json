@@ -11,45 +11,54 @@
     "file": "assets/ScoreDisplay-49c766eb.css",
     "src": "ScoreDisplay.css"
   },
-  "_Badge-cdb52396.js": {
+  "_Badge-911ec6c6.js": {
     "css": [
       "assets/Badge-8a81042f.css"
     ],
-    "file": "assets/Badge-cdb52396.js",
+    "file": "assets/Badge-911ec6c6.js",
     "imports": [
-      "_index-aec42e4f.js",
-      "_installCommonHelpers-978315d6.js"
+      "_index-1d0a63e5.js",
+      "_installCommonHelpers-49d8da94.js",
+      "_storeHelper-9f994824.js"
     ]
   },
-  "_FittedContent-54e37ee3.js": {
+  "_FittedContent-324eb0dd.js": {
     "css": [
       "assets/FittedContent-915f4dfd.css"
     ],
-    "file": "assets/FittedContent-54e37ee3.js",
+    "file": "assets/FittedContent-324eb0dd.js",
     "imports": [
-      "_installCommonHelpers-978315d6.js"
+      "_storeHelper-9f994824.js"
     ]
   },
-  "_ScoreDisplay-26d88731.js": {
+  "_ScoreDisplay-55af09e4.js": {
     "css": [
       "assets/ScoreDisplay-49c766eb.css"
     ],
-    "file": "assets/ScoreDisplay-26d88731.js",
+    "file": "assets/ScoreDisplay-55af09e4.js",
     "imports": [
-      "_index-aec42e4f.js",
-      "_installCommonHelpers-978315d6.js"
+      "_index-1d0a63e5.js",
+      "_storeHelper-9f994824.js"
     ]
   },
-  "_activeRoundStore-29c594a9.js": {
-    "file": "assets/activeRoundStore-29c594a9.js",
+  "_activeRoundStore-773e9ebe.js": {
+    "file": "assets/activeRoundStore-773e9ebe.js",
     "imports": [
-      "_installCommonHelpers-978315d6.js"
+      "_storeHelper-9f994824.js",
+      "_installCommonHelpers-49d8da94.js"
     ]
   },
-  "_casterStore-9842a80e.js": {
-    "file": "assets/casterStore-9842a80e.js",
+  "_casterStore-891b8249.js": {
+    "file": "assets/casterStore-891b8249.js",
     "imports": [
-      "_installCommonHelpers-978315d6.js"
+      "_storeHelper-9f994824.js",
+      "_installCommonHelpers-49d8da94.js"
+    ]
+  },
+  "_donationDataStore-a7f65c14.js": {
+    "file": "assets/donationDataStore-a7f65c14.js",
+    "imports": [
+      "_storeHelper-9f994824.js"
     ]
   },
   "_iconic-mark-d1a3d70a.js": {
@@ -58,23 +67,29 @@
     ],
     "file": "assets/iconic-mark-d1a3d70a.js"
   },
-  "_imageHelper-2653d14c.js": {
-    "file": "assets/imageHelper-2653d14c.js",
+  "_imageHelper-0e3d690b.js": {
+    "file": "assets/imageHelper-0e3d690b.js",
     "imports": [
-      "_installCommonHelpers-978315d6.js"
+      "_installCommonHelpers-49d8da94.js"
     ]
   },
-  "_index-aec42e4f.js": {
-    "file": "assets/index-aec42e4f.js",
+  "_index-1d0a63e5.js": {
+    "file": "assets/index-1d0a63e5.js",
     "imports": [
-      "_installCommonHelpers-978315d6.js"
+      "_storeHelper-9f994824.js"
     ]
   },
-  "_installCommonHelpers-978315d6.js": {
+  "_installCommonHelpers-49d8da94.js": {
     "css": [
       "assets/installCommonHelpers-d753ccc4.css"
     ],
-    "file": "assets/installCommonHelpers-978315d6.js"
+    "file": "assets/installCommonHelpers-49d8da94.js",
+    "imports": [
+      "_storeHelper-9f994824.js"
+    ]
+  },
+  "_storeHelper-9f994824.js": {
+    "file": "assets/storeHelper-9f994824.js"
   },
   "installCommonHelpers.css": {
     "file": "assets/installCommonHelpers-d753ccc4.css",
@@ -96,6 +111,23 @@
     "file": "assets/scoreboard-bg-912dba4f.png",
     "src": "src/assets/img/scoreboard-bg.png"
   },
+  "src/dashboard/tiltify.css": {
+    "file": "assets/tiltify-5c4ceb5c.css",
+    "src": "src/dashboard/tiltify.css"
+  },
+  "src/dashboard/tiltify.ts": {
+    "css": [
+      "assets/tiltify-5c4ceb5c.css"
+    ],
+    "file": "assets/tiltify-a0d507fc.js",
+    "imports": [
+      "_storeHelper-9f994824.js",
+      "_donationDataStore-a7f65c14.js",
+      "_index-1d0a63e5.js"
+    ],
+    "isEntry": true,
+    "src": "src/dashboard/tiltify.ts"
+  },
   "src/graphics/background.css": {
     "file": "assets/background-6aa21eb2.css",
     "src": "src/graphics/background.css"
@@ -104,9 +136,10 @@
     "css": [
       "assets/background-6aa21eb2.css"
     ],
-    "file": "assets/background-ec54336d.js",
+    "file": "assets/background-eb541ea8.js",
     "imports": [
-      "_installCommonHelpers-978315d6.js"
+      "_installCommonHelpers-49d8da94.js",
+      "_storeHelper-9f994824.js"
     ],
     "isEntry": true,
     "src": "src/graphics/background.ts"
@@ -119,10 +152,11 @@
     "css": [
       "assets/bracket-33b8faaa.css"
     ],
-    "file": "assets/bracket-c65c5f99.js",
+    "file": "assets/bracket-57bf4ea9.js",
     "imports": [
-      "_installCommonHelpers-978315d6.js",
-      "_FittedContent-54e37ee3.js"
+      "_installCommonHelpers-49d8da94.js",
+      "_storeHelper-9f994824.js",
+      "_FittedContent-324eb0dd.js"
     ],
     "isEntry": true,
     "src": "src/graphics/bracket.ts"
@@ -135,14 +169,15 @@
     "css": [
       "assets/casters-76378b61.css"
     ],
-    "file": "assets/casters-d291bd9b.js",
+    "file": "assets/casters-5ea66e4a.js",
     "imports": [
-      "_installCommonHelpers-978315d6.js",
-      "_casterStore-9842a80e.js",
-      "_FittedContent-54e37ee3.js",
-      "_Badge-cdb52396.js",
-      "_imageHelper-2653d14c.js",
-      "_index-aec42e4f.js"
+      "_installCommonHelpers-49d8da94.js",
+      "_storeHelper-9f994824.js",
+      "_casterStore-891b8249.js",
+      "_FittedContent-324eb0dd.js",
+      "_Badge-911ec6c6.js",
+      "_imageHelper-0e3d690b.js",
+      "_index-1d0a63e5.js"
     ],
     "isEntry": true,
     "src": "src/graphics/casters.ts"
@@ -158,16 +193,17 @@
     "css": [
       "assets/gameplay-07147ab0.css"
     ],
-    "file": "assets/gameplay-12ced01e.js",
+    "file": "assets/gameplay-eff574ea.js",
     "imports": [
-      "_installCommonHelpers-978315d6.js",
-      "_FittedContent-54e37ee3.js",
-      "_activeRoundStore-29c594a9.js",
-      "_index-aec42e4f.js",
-      "_ScoreDisplay-26d88731.js",
+      "_installCommonHelpers-49d8da94.js",
+      "_storeHelper-9f994824.js",
+      "_FittedContent-324eb0dd.js",
+      "_activeRoundStore-773e9ebe.js",
+      "_index-1d0a63e5.js",
+      "_ScoreDisplay-55af09e4.js",
       "_iconic-mark-d1a3d70a.js",
-      "_Badge-cdb52396.js",
-      "_casterStore-9842a80e.js"
+      "_Badge-911ec6c6.js",
+      "_casterStore-891b8249.js"
     ],
     "isEntry": true,
     "src": "src/graphics/gameplay.ts"
@@ -183,30 +219,33 @@
     "css": [
       "assets/intermission-b98ba3c4.css"
     ],
-    "file": "assets/intermission-f837cdf0.js",
+    "file": "assets/intermission-3fba147e.js",
     "imports": [
-      "_installCommonHelpers-978315d6.js",
-      "_FittedContent-54e37ee3.js"
+      "_installCommonHelpers-49d8da94.js",
+      "_storeHelper-9f994824.js",
+      "_FittedContent-324eb0dd.js"
     ],
     "isEntry": true,
     "src": "src/graphics/intermission.ts"
   },
   "src/graphics/omnibar.css": {
-    "file": "assets/omnibar-c4b33e65.css",
+    "file": "assets/omnibar-141151e0.css",
     "src": "src/graphics/omnibar.css"
   },
   "src/graphics/omnibar.ts": {
     "css": [
-      "assets/omnibar-c4b33e65.css"
+      "assets/omnibar-141151e0.css"
     ],
-    "file": "assets/omnibar-5cae6cd2.js",
+    "file": "assets/omnibar-0fdb9c16.js",
     "imports": [
-      "_installCommonHelpers-978315d6.js",
-      "_FittedContent-54e37ee3.js",
-      "_index-aec42e4f.js",
-      "_activeRoundStore-29c594a9.js",
+      "_installCommonHelpers-49d8da94.js",
+      "_storeHelper-9f994824.js",
+      "_FittedContent-324eb0dd.js",
+      "_index-1d0a63e5.js",
+      "_activeRoundStore-773e9ebe.js",
+      "_donationDataStore-a7f65c14.js",
       "_iconic-mark-d1a3d70a.js",
-      "_casterStore-9842a80e.js"
+      "_casterStore-891b8249.js"
     ],
     "isEntry": true,
     "src": "src/graphics/omnibar.ts"
@@ -222,15 +261,16 @@
     "css": [
       "assets/rosters-stages-15061f5e.css"
     ],
-    "file": "assets/rosters-stages-85f6fae1.js",
+    "file": "assets/rosters-stages-3806a0cf.js",
     "imports": [
-      "_installCommonHelpers-978315d6.js",
-      "_FittedContent-54e37ee3.js",
-      "_activeRoundStore-29c594a9.js",
-      "_Badge-cdb52396.js",
-      "_index-aec42e4f.js",
-      "_ScoreDisplay-26d88731.js",
-      "_imageHelper-2653d14c.js"
+      "_installCommonHelpers-49d8da94.js",
+      "_storeHelper-9f994824.js",
+      "_FittedContent-324eb0dd.js",
+      "_activeRoundStore-773e9ebe.js",
+      "_Badge-911ec6c6.js",
+      "_index-1d0a63e5.js",
+      "_ScoreDisplay-55af09e4.js",
+      "_imageHelper-0e3d690b.js"
     ],
     "isEntry": true,
     "src": "src/graphics/rosters-stages.ts"
