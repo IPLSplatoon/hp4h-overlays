@@ -5,7 +5,7 @@
     >
         {{ donationDataStore.donationData.status }}
         <ipl-button
-            v-if="donationDataStore.donationData.status === 'DISCONNECTED'"
+            v-if="donationDataStore.donationData.status !== 'CONNECTED'"
             label="Reconnect"
             color="#333"
             style="margin-top: 4px;"
