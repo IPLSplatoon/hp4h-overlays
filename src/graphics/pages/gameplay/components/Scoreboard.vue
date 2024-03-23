@@ -68,7 +68,10 @@
                             {{ activeRoundStore.activeRound.match.name }}
                         </fitted-content>
                     </opacity-swap-transition>
-                    <donation-total :max-width="290" direction="down" />
+                    <donation-total
+                        :max-width="290"
+                        direction="down"
+                    />
                 </div>
             </div>
         </div>
@@ -207,17 +210,6 @@ export default defineComponent({
         }
     }
 
-    //> .scoreboard-donation-total {
-    //    background-color: constants.$accent-red;
-    //    color: constants.$accent-red-text;
-    //    border-radius: 4px;
-    //    margin-top: 8px;
-    //    width: 180px;
-    //    margin-left: auto;
-    //    margin-right: 55px;
-    //    padding: 0 10px;
-    //}
-
     > .scoreboard-extra {
         margin-top: 8px;
         height: 70px;
@@ -247,6 +239,7 @@ export default defineComponent({
                 font-size: 24px;
                 line-height: 36px;
                 //margin: 0 auto;
+                margin-top: -2px;
             }
         }
     }
