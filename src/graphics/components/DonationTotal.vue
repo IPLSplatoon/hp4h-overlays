@@ -4,6 +4,7 @@
             v-for="donation in newDonationElems"
             :key="donation.id"
             class="new-donation"
+            :class="`direction-${props.direction}`"
         >
             +{{ donation.amount }}
         </div>
@@ -23,9 +24,12 @@ import { useTweenedNumber } from '../helpers/useTweenedNumber';
 import FittedContent from './FittedContent.vue';
 import { useDonationDataStore } from 'client-shared/store/donationDataStore';
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
     maxWidth: number
-}>();
+    direction: 'up' | 'down'
+}>(), {
+    direction: 'up'
+});
 const donationDataStore = useDonationDataStore();
 const tweenedTotal = useTweenedNumber(() => donationDataStore.donationData.donationTotal);
 const formattedTotal = computed(() =>
@@ -73,15 +77,23 @@ onUnmounted(() => {
 .new-donation {
     position: absolute;
     left: 50%;
-    top: -20px;
     font-size: 24px;
     transform: translateX(-50%);
-    animation: new-donation 5s linear;
     opacity: 0;
     white-space: nowrap;
+
+    &.direction-up {
+        animation: new-donation-up 5s linear;
+        top: -20px;
+    }
+
+    &.direction-down {
+        animation: new-donation-down 5s linear;
+        bottom: -20px;
+    }
 }
 
-@keyframes new-donation {
+@keyframes new-donation-up {
     0% {
         opacity: 0;
         transform: translate(-50%, 0);
@@ -98,6 +110,26 @@ onUnmounted(() => {
     100% {
         opacity: 0;
         transform: translate(-50%, -50px);
+    }
+}
+
+@keyframes new-donation-down {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 0);
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, 50px);
     }
 }
 </style>
