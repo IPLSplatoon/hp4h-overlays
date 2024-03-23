@@ -44,7 +44,8 @@ const bracketTitle = computed(() => {
 const renderer = new BracketRenderer({
     animator: new D3BracketAnimator(),
     swissOpts: {
-        rowHeight: 70
+        rowHeight: 70,
+        useScrollMask: true
     },
     roundRobinOpts: {
         maxScale: 1.75
