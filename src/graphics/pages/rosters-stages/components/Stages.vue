@@ -97,8 +97,8 @@ export default defineComponent({
             breakScreenStore,
             activeRoundStore,
             games,
-            shouldDarkenImage: (winner: string) => (winner !== 'none' || activeRoundStore.activeRound.match.isCompleted),
-            shouldDarkenText: (winner: string) => (winner === 'none' && activeRoundStore.activeRound.match.isCompleted),
+            shouldDarkenImage: (winner: string) => (winner !== 'none' || (activeRoundStore.activeRound.match.type === 'BEST_OF' && activeRoundStore.activeRound.match.isCompleted)),
+            shouldDarkenText: (winner: string) => (winner === 'none' && activeRoundStore.activeRound.match.type === 'BEST_OF' && activeRoundStore.activeRound.match.isCompleted),
             winnerNames: computed(() => games.value?.map(game => {
                 switch (game.winner) {
                     case 'alpha':
