@@ -157,14 +157,14 @@
     "src": "src/graphics/background.ts"
   },
   "src/graphics/bracket.css": {
-    "file": "assets/bracket-33b8faaa.css",
+    "file": "assets/bracket-8a0e0943.css",
     "src": "src/graphics/bracket.css"
   },
   "src/graphics/bracket.ts": {
     "css": [
-      "assets/bracket-33b8faaa.css"
+      "assets/bracket-8a0e0943.css"
     ],
-    "file": "assets/bracket-75e0db5f.js",
+    "file": "assets/bracket-9a743ba0.js",
     "imports": [
       "_installCommonHelpers-6574289e.js",
       "_storeHelper-4fec82dd.js",
@@ -195,7 +195,7 @@
     "src": "src/graphics/casters.ts"
   },
   "src/graphics/gameplay.css": {
-    "file": "assets/gameplay-7b071713.css",
+    "file": "assets/gameplay-c1ddc265.css",
     "src": "src/graphics/gameplay.css"
   },
   "src/graphics/gameplay.ts": {
@@ -203,9 +203,9 @@
       "assets/scoreboard-bg-912dba4f.png"
     ],
     "css": [
-      "assets/gameplay-7b071713.css"
+      "assets/gameplay-c1ddc265.css"
     ],
-    "file": "assets/gameplay-96a8d1b4.js",
+    "file": "assets/gameplay-68bd1d8d.js",
     "imports": [
       "_installCommonHelpers-6574289e.js",
       "_storeHelper-4fec82dd.js",
