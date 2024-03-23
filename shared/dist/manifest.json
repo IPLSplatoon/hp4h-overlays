@@ -112,14 +112,14 @@
     "src": "src/assets/img/scoreboard-bg.png"
   },
   "src/dashboard/tiltify.css": {
-    "file": "assets/tiltify-5c4ceb5c.css",
+    "file": "assets/tiltify-56c98c5c.css",
     "src": "src/dashboard/tiltify.css"
   },
   "src/dashboard/tiltify.ts": {
     "css": [
-      "assets/tiltify-5c4ceb5c.css"
+      "assets/tiltify-56c98c5c.css"
     ],
-    "file": "assets/tiltify-a0d507fc.js",
+    "file": "assets/tiltify-8117f7fc.js",
     "imports": [
       "_storeHelper-9f994824.js",
       "_donationDataStore-a7f65c14.js",
