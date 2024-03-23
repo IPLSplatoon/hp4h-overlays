@@ -39,7 +39,7 @@ async function onReconnect() {
     await nodecg.sendMessage('reconnectToTiltify');
 }
 
-async function onManualRefresh() {
+async function onManualRefresh(): Promise<void> {
     return nodecg.sendMessage('refreshTiltifyTotals');
 }
 </script>
