@@ -18,6 +18,14 @@
             currency: donationDataStore.donationData.currency,
             style: 'currency'
         }) }}
+        <ipl-button
+            label="Manual refresh"
+            async
+            color="red"
+            disable-on-success
+            style="margin-top: 8px;"
+            @click="onManualRefresh"
+        />
     </ipl-space>
 </template>
 
@@ -29,6 +37,10 @@ const donationDataStore = useDonationDataStore();
 
 async function onReconnect() {
     await nodecg.sendMessage('reconnectToTiltify');
+}
+
+async function onManualRefresh() {
+    return nodecg.sendMessage('refreshTiltifyTotals');
 }
 </script>
 
