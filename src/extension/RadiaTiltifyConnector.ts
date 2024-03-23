@@ -114,7 +114,7 @@ export class RadiaTiltifyConnector {
         });
 
         this.socket.on('error', err => {
-            this.nodecg.log.error('Received error from Tiltify websocket:', err);
+            this.nodecg.log.error('Received error from Tiltify websocket:', err.message ?? err);
         });
 
         this.socket.on('open', () => {
@@ -125,6 +125,9 @@ export class RadiaTiltifyConnector {
             }
             this.reconnectionCount = 0;
             this.heartbeat();
+            this.requestCampaignData().catch(e => {
+                this.nodecg.log.error('Failed to request campaign data from Tiltify:', e);
+            });
         });
 
         this.socket.on('close', (code, reason) => {
