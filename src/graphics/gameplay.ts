@@ -7,6 +7,7 @@ import { createPinia } from 'pinia';
 import { initCasterStore } from '../client-shared/store/casterStore';
 import { initActiveRoundStore } from '../client-shared/store/activeRoundStore';
 import { initScoreboardStore } from '../client-shared/store/scoreboardStore';
+import { initDonationDataStore } from 'client-shared/store/donationDataStore';
 
 (async () => {
     const app = createApp(Gameplay);
@@ -15,5 +16,6 @@ import { initScoreboardStore } from '../client-shared/store/scoreboardStore';
     await initCasterStore();
     await initActiveRoundStore();
     await initScoreboardStore();
+    await initDonationDataStore();
     app.mount('#app');
 })();

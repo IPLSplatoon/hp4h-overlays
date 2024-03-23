@@ -61,13 +61,14 @@
                     <opacity-swap-transition>
                         <fitted-content
                             :key="activeRoundStore.activeRound.match.name"
-                            :max-width="290"
+                            :max-width="285"
                             class="flavor-text"
                             align="center"
                         >
                             {{ activeRoundStore.activeRound.match.name }}
                         </fitted-content>
                     </opacity-swap-transition>
+                    <donation-total :max-width="290" direction="down" />
                 </div>
             </div>
         </div>
@@ -85,11 +86,12 @@ import { useActiveRoundStore } from 'client-shared/store/activeRoundStore';
 import { useScoreboardStore } from 'client-shared/store/scoreboardStore';
 import { getContrastingTextColor } from '@iplsplatoon/vue-components';
 import ScoreDisplay from '../../../components/ScoreDisplay.vue';
+import DonationTotal from '../../../components/DonationTotal.vue';
 
 export default defineComponent({
     name: 'Scoreboard',
 
-    components: { ScoreDisplay, OpacitySwapTransition, FittedContent },
+    components: { DonationTotal, ScoreDisplay, OpacitySwapTransition, FittedContent },
 
     setup() {
         const activeRoundStore = useActiveRoundStore();
@@ -113,15 +115,15 @@ export default defineComponent({
                     rotate: 0,
                     ease: 'power3.out'
                 });
-                tl.to(elem.querySelector('.scoreboard-extra'), { opacity: 1, duration: 0.35 });
+                tl.to(elem.querySelectorAll('.scoreboard-extra, .scoreboard-donation-total'), { opacity: 1, duration: 0.35, stagger: 0.1 });
             },
             beforeScoreboardEnter: (elem: HTMLElement) => {
                 gsap.set(elem.querySelectorAll('.scoreboard-teams'), { y: -180, x: 0, rotate: gsap.utils.random(-5, 5) });
-                gsap.set(elem.querySelector('.scoreboard-extra'), { opacity: 0 });
+                gsap.set(elem.querySelectorAll('.scoreboard-extra, .scoreboard-donation-total'), { opacity: 0 });
             },
             scoreboardLeave: (elem: HTMLElement, done: gsap.Callback) => {
                 const tl = gsap.timeline({ onComplete: done });
-                tl.to(elem.querySelector('.scoreboard-extra'), { opacity: 0, duration: 0.35 });
+                tl.to(elem.querySelectorAll('.scoreboard-extra, .scoreboard-donation-total'), { opacity: 0, duration: 0.35, stagger: -0.1 });
                 tl.to(elem.querySelectorAll('.scoreboard-teams'), {
                     x: -400,
                     duration: 0.5,
@@ -205,9 +207,20 @@ export default defineComponent({
         }
     }
 
+    //> .scoreboard-donation-total {
+    //    background-color: constants.$accent-red;
+    //    color: constants.$accent-red-text;
+    //    border-radius: 4px;
+    //    margin-top: 8px;
+    //    width: 180px;
+    //    margin-left: auto;
+    //    margin-right: 55px;
+    //    padding: 0 10px;
+    //}
+
     > .scoreboard-extra {
         margin-top: 8px;
-        height: 38px;
+        height: 70px;
         display: flex;
         align-items: center;
         z-index: 2;
@@ -216,10 +229,13 @@ export default defineComponent({
         color: constants.$accent-red-text;
         border-radius: 4px;
 
+        .donation-total-wrapper {
+            margin-top: -4px;
+        }
+
         > .tournament-logo {
-            width: 75px;
+            width: 85px;
             margin-left: 4px;
-            margin-top: 4px;
             transform: rotate(-5deg);
         }
 
@@ -230,7 +246,7 @@ export default defineComponent({
             > .flavor-text {
                 font-size: 24px;
                 line-height: 36px;
-                margin: 0 auto;
+                //margin: 0 auto;
             }
         }
     }
