@@ -84,7 +84,7 @@ jobs:
         continue-on-error: true
         working-directory: ./bundles/hp4h-overlays
         run: |
-          git add -f graphics shared
+          git add -f graphics shared dashboard extension
           git commit -m "Build result from master branch" -a
 
       - name: Push built files to "build" branch
