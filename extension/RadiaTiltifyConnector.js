@@ -31,6 +31,19 @@ class RadiaTiltifyConnector {
             this.donationData.value.status = 'DISCONNECTED';
             throw new Error('Missing bundle configuration. Tiltify connection is disabled.');
         }
+        nodecg.listenFor('refreshTiltifyTotals', (data, ack) => __awaiter(this, void 0, void 0, function* () {
+            try {
+                yield this.requestCampaignData();
+                if (ack && !ack.handled) {
+                    ack(null, null);
+                }
+            }
+            catch (e) {
+                if (ack && !ack.handled) {
+                    ack(e);
+                }
+            }
+        }));
         this.seenDonations = new Set();
         this.tiltifyApiClient = new TiltifyApiClient_1.TiltifyApiClient(nodecg.bundleConfig.tiltify.clientId, nodecg.bundleConfig.tiltify.clientSecret);
         nodecg.listenFor('reconnectToTiltify', () => {
