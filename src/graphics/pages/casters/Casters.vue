@@ -37,8 +37,8 @@ export default defineComponent({
 
             tl.fromTo(
                 '.caster-display',
-                { y: -875 },
-                { y: 0, stagger: -0.25, duration: 0.75, ease: 'power2.out', delay: 0.5 });
+                { y: -250, rotate: gsap.utils.random(-5, 5, 0.1, true), opacity: 0 },
+                { y: 0, stagger: -0.25, duration: 0.75, ease: 'power2.out', rotate: 0, opacity: 1, delay: 0.5 });
 
             return tl;
         });
